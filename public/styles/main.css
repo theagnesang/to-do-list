@@ -1,0 +1,200 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url("../fonts/Poppins-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url("../fonts/Poppins-Bold.ttf");
+    font-weight: 700;
+}
+
+body {
+    margin: 0;
+    padding: 0 20px;
+    font-family: Poppins;
+    font-size: 16px;
+    height: 100%;
+    background-color: #2B2B2B;
+    color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav {
+    width: 100%;
+}
+
+.nav-item {
+    display: inline-block;
+    background-color: #181818;
+    border-radius: 0 0 35% 35%;
+    opacity: 70%;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 10px 0px 15px 0px;
+    text-decoration: none;
+    color: gainsboro;
+    height: 100%;
+    width: 100px;
+    text-align: center;
+}
+
+.nav-item:hover {
+    opacity: 100%;
+}
+
+.current-nav {
+    opacity: 100%;
+    color: #FF8C00;
+}
+
+.h1-div {
+    margin-top: 15px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.h2-div {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.label-text {
+    background: -webkit-linear-gradient(#4ad7f7, #00b7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.grid-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 50vw;
+    max-width: 500px;
+    min-width: 300px;
+    margin: 0 auto;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-list ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+.item-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item-task {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #d9d9d99f;
+}
+
+.add-button {
+    height: 40px;
+    width: 50vw;
+    max-width: 500px;
+    min-width: 300px;
+    border-radius: 35px;
+    border: 2px dashed #d9d9d98b;
+    background-color: rgba(0, 255, 255, 0);
+    padding: 0px 25px;
+    display: flex;
+    flex-wrap: row nowrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+input[type=text] {
+    text-decoration: none;
+    border: 0;
+    background-color: rgba(0, 255, 255, 0);
+    font-family: Poppins;
+    color: #D9D9D9;
+    width: 100%;
+}
+
+input[type=text]:focus {
+    border: 0;
+    outline: none;
+    background-color: rgba(0, 255, 255, 0);
+}
+
+.button {
+    margin-top: 8px;
+    border: 1px solid #D9D9D9;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    cursor:pointer;
+    width: 24px;
+    height: 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #2B2B2B;
+}
+
+.footer-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    font-size: 0.7rem;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+.button-delete {
+    font-family: Poppins;
+    display: none;
+}
+
+.item-wrap:hover .button-delete,
+.item-wrap .task-description[contenteditable="true"] ~ .button-delete {
+    display: block; /* Show the delete button on hover or when in edit mode */
+}

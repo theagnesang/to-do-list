@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="h1-div">
+        <h1>To-do List</h1>
+    </div>
+    <div class="h2-div">
+        <h2>for <span class="label-text">Work</span></h2>
+    </div>
+    <div class="grid-list">
+        <ul>
+            <% workTasks.forEach(t => { %>
+            <li class="item-wrap">
+            <div class="item-task">
+                <form class="task-form" action="/workTasks/<%= t.id %>/toggle" method="post">
+                    <input type="hidden" name="_method" value="POST">
+                    <input type="checkbox" name="completed" <%= t.completed ? 'checked' : '' %> class="task-checkbox">
+                </form>
+                <span class="task-description <%= t.completed ? 'completed' : '' %>" data-id="<%= t.id %>" contenteditable="<%= !t.completed %>">
+                    <%= t.description %>
+                </span>
+            </div>
+                <form action="/work-tasks/<%= t.id %>" method="post">
+                    <input type="hidden" name="_method" value="POST">
+                    <button type="submit" class="button-delete">Delete</button>
+                </form>
+            </li>
+            <% }); %>
+        </ul>
+
+        <form class="add-button" action="/work-tasks" method="POST" autocomplete="off">
+            <input type="text" name="description" placeholder="Add work task here" required>
+            <button class="button" type="submit">+</button>
+        </form>
+
+    </div>
+
+    <%- include("partials/footer.ejs")%>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="main-work.js"></script>
+</body>
+</html>
